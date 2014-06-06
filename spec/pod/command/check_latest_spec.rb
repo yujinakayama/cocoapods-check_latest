@@ -1,4 +1,4 @@
-
+# coding: utf-8
 
 require 'spec_helper'
 require 'cocoapods'
@@ -104,7 +104,7 @@ module Pod
       end
 
       describe '#latest_version_in_repo' do
-      let(:git_url) { 'https://github.com/gh-unit/gh-unit.git' }
+        let(:git_url) { 'https://github.com/gh-unit/gh-unit.git' }
 
         before do
           allow(command).to receive(:github_tags)
