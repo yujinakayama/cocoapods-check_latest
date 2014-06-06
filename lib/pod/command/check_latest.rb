@@ -4,7 +4,7 @@ module Pod
   class Command
     class CheckLatest < Command
       self.summary = 'Check if the latest version of a pod is up to date'
-      self.arguments = '[NAME]'
+      self.arguments = [['NAME', :required]]
 
       def initialize(argv)
         @name = argv.shift_argument
@@ -46,9 +46,8 @@ module Pod
 
       def github_url(set)
         git_url = set.specification.source[:git]
-        return nil unless git_url
-        return nil unless git_url.include?('github.com/')
-        git_url
+        return nil if !git_url || !git_url.include?('github.com/')
+        git_url.sub(/\.git$/, '')
       end
 
       def latest_version_in_repo(git_url)
@@ -56,8 +55,8 @@ module Pod
         versions_from_tags(tags).sort.last
       end
 
-      def github_tags(git_url)
-        GitHub.tags(git_url).map { |hash| hash['name'] }
+      def github_tags(github_url)
+        GitHub.tags(github_url).map { |hash| hash['name'] }
       end
 
       def versions_from_tags(tags)

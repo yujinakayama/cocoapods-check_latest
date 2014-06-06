@@ -45,8 +45,8 @@ module Pod
         subject { command.github_url(set) }
 
         context "when the pod's source is a GitHub repository" do
-          it 'returns the URL' do
-            is_expected.to eq('https://github.com/gh-unit/gh-unit.git')
+          it 'returns the URL without ".git" extension' do
+            is_expected.to eq('https://github.com/gh-unit/gh-unit')
           end
         end
 
@@ -118,7 +118,7 @@ module Pod
       end
 
       describe '#github_tags' do
-        let(:git_url) { 'https://github.com/gh-unit/gh-unit.git' }
+        let(:github_url) { 'https://github.com/gh-unit/gh-unit' }
 
         let(:data) do
           [
@@ -129,11 +129,11 @@ module Pod
         end
 
         before do
-          allow(GitHub).to receive(:tags).with(git_url).and_return(data)
+          allow(GitHub).to receive(:tags).with(github_url).and_return(data)
         end
 
         it 'returns an array of tag names' do
-          tags = command.github_tags(git_url)
+          tags = command.github_tags(github_url)
           expect(tags).to eq(['release-0.3.6', '0.5.8', '0.5.7'])
         end
       end
