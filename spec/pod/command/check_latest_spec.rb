@@ -46,7 +46,7 @@ module Pod
 
         context "when the pod's source is a GitHub repository" do
           it 'returns the URL' do
-            should == 'https://github.com/gh-unit/gh-unit.git'
+            is_expected.to eq('https://github.com/gh-unit/gh-unit.git')
           end
         end
 
@@ -55,7 +55,7 @@ module Pod
             allow_any_instance_of(Specification).to receive(:source).and_return(git: 'foo')
           end
 
-          it { should be_nil }
+          it { is_expected.to be_nil }
         end
 
         context "when the pod's source is a Subversion repository" do
@@ -63,7 +63,7 @@ module Pod
             allow_any_instance_of(Specification).to receive(:source).and_return(svn: 'foo')
           end
 
-          it { should be_nil }
+          it { is_expected.to be_nil }
         end
       end
 
@@ -74,7 +74,7 @@ module Pod
           let(:tags) { ['0.5.8', 'foo'] }
 
           it 'excludes the tag' do
-            should == ['0.5.8']
+            is_expected.to eq(['0.5.8'])
           end
         end
 
@@ -82,7 +82,7 @@ module Pod
           let(:tags) { ['0.5.8', 'v0.5.7'] }
 
           it 'removes the prefix' do
-            should == ['0.5.8', '0.5.7']
+            is_expected.to eq(['0.5.8', '0.5.7'])
           end
         end
 
@@ -90,7 +90,7 @@ module Pod
           let(:tags) { ['0.5.8', 'ver0.5.7'] }
 
           it 'removes the prefix' do
-            should == ['0.5.8', '0.5.7']
+            is_expected.to eq(['0.5.8', '0.5.7'])
           end
         end
 
@@ -98,7 +98,7 @@ module Pod
           let(:tags) { ['0.5.8', 'release-0.5.7'] }
 
           it 'excludes the tag' do
-            should == ['0.5.8']
+            is_expected.to eq(['0.5.8'])
           end
         end
       end
