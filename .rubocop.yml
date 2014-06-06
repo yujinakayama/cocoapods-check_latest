@@ -15,9 +15,6 @@ LineLength:
 MethodLength:
   Max: 17
 
-CyclomaticComplexity:
-  Max: 8
-
 WordArray:
   Enabled: false
 
@@ -53,15 +50,3 @@ AlignHash:
 # TODO
 Documentation:
   Enabled: false
-
-# Currently IndentationWidth reports false positive offence around here document.
-IndentationWidth:
-  Enabled: false
-
-# TODO: This should not register offences for non keyword hashes.
-BracesAroundHashParameters:
-  Enabled: false
-
-# TODO: Shorten to 100.
-ClassLength:
-  Max: 154
