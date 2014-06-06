@@ -1,11 +1,11 @@
 
 AllCops:
-  Includes:
+  Include:
     - '*.gemspec'
     - Rakefile
     - Gemfile
     - Guardfile
-  Excludes:
+  Exclude:
     - tmp/*
     - vendor/*
 

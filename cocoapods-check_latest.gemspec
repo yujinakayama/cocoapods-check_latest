@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec',         '~> 2.14'
   spec.add_development_dependency 'rake',          '~> 10.1'
   spec.add_development_dependency 'simplecov',     '~> 0.8'
-  spec.add_development_dependency 'rubocop',       '~> 0.15'
+  spec.add_development_dependency 'rubocop',       '~> 0.23'
   spec.add_development_dependency 'guard-rspec',   '~> 4.2'
   spec.add_development_dependency 'guard-rubocop', '~> 1.0'
   spec.add_development_dependency 'guard-shell',   '~> 0.5'
