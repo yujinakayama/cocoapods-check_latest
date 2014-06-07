@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = 'cocoapods-check_latest'
-  spec.version       = '0.0.1' # http://semver.org/
+  spec.version       = '0.1.0' # http://semver.org/
   spec.authors       = ['Yuji Nakayama']
   spec.email         = ['nkymyj@gmail.com']
   spec.description   = 'A CocoaPods plugin that checks if the latest version of a pod is up to date'
